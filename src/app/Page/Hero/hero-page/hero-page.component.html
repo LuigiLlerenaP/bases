@@ -1,0 +1,82 @@
+<!-- Template mejorado con Bootstrap para Angular -->
+<div class="container-fluid py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-12">
+
+      <!-- Card principal con mejor estructura -->
+      <div class="card bg-primary text-white shadow-lg border-0">
+        <div class="card-header bg-transparent border-0 text-center py-4">
+          <h1 class="card-title display-4 mb-0 fw-bold">
+            <i class="bi bi-person-circle me-2"></i>{{ name() }}
+          </h1>
+        </div>
+
+        <div class="card-body px-4 px-md-5">
+          <!-- Lista de definiciones mejorada -->
+          <dl class="row g-3 mb-4">
+
+            <div class="col-12">
+              <div class="bg-light bg-opacity-10 rounded p-3 border-start border-warning border-4">
+                <dt class="text-warning fw-semibold mb-1">
+                  <i class="bi bi-person-badge me-2"></i>Nombre:
+                </dt>
+                <dd class="mb-0 fs-5">{{ name() }}</dd>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="bg-light bg-opacity-10 rounded p-3 border-start border-info border-4">
+                <dt class="text-info fw-semibold mb-1">
+                  <i class="bi bi-calendar3 me-2"></i>Edad:
+                </dt>
+                <dd class="mb-0 fs-5">{{ age() }} años</dd>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="bg-light bg-opacity-10 rounded p-3 border-start border-success border-4">
+                <dt class="text-success fw-semibold mb-1">
+                  <i class="bi bi-award me-2"></i>Método:
+                </dt>
+                <dd class="mb-0 fs-5">{{ heroDescription() }}</dd>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="bg-light bg-opacity-10 rounded p-3 border-start border-danger border-4">
+                <dt class="text-danger fw-semibold mb-1">
+                  <i class="bi bi-type-bold me-2"></i>Capitalizado:
+                </dt>
+                <dd class="mb-0 fs-5 text-uppercase fw-bold">{{ name() | uppercase }}</dd>
+              </div>
+            </div>
+
+          </dl>
+        </div>
+
+        <!-- Footer con botones mejorados -->
+        <div class="card-footer bg-transparent border-0 py-4">
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+
+            <button (click)="changeHeroName()" class="btn btn-warning btn-lg px-4 fw-semibold" type="button">
+              <i class="bi bi-pencil-square me-2"></i>
+              Cambiar nombre
+            </button>
+
+            <button (click)="changeHeroAge()" class="btn btn-info btn-lg px-4 fw-semibold" type="button">
+              <i class="bi bi-calendar-plus me-2"></i>
+              Cambiar edad
+            </button>
+
+            <button (click)="resetForm()" class="btn btn-danger btn-lg px-4 fw-semibold" type="button">
+              <i class="bi bi-arrow-clockwise me-2"></i>
+              Reset
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

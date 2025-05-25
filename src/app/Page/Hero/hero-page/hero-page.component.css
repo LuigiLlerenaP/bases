@@ -1,0 +1,42 @@
+/* Estilos adicionales para el componente */
+.card {
+  background: linear-gradient(
+    135deg,
+    var(--bs-primary),
+    var(--bs-primary-dark)
+  ) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn {
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.bg-light.bg-opacity-10 {
+  transition: background-color 0.3s ease;
+}
+
+.bg-light.bg-opacity-10:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+@media (max-width: 576px) {
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+}

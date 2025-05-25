@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark shadow-lg">
+  <div class="container-fluid px-4">
+    <!-- Logo / Brand -->
+    <a class="navbar-brand fw-bold fs-4 text-primary" routerLink="/" style="letter-spacing: 1px;">
+      <i class="bi bi-code-slash me-2"></i>Bases
+    </a>
+
+    <!-- Menú de navegación siempre visible -->
+    <div class="navbar-nav ms-auto d-flex flex-row">
+      <a class="nav-link fw-semibold px-3 py-2 rounded-pill mx-2" routerLink="/counter" routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{exact:true}">
+        <i class="bi bi-calculator me-2"></i>Counter
+      </a>
+      <a class="nav-link fw-semibold px-3 py-2 rounded-pill mx-2" routerLink="/hero" routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{exact:true}">
+        <i class="bi bi-person-badge me-2"></i>Hero
+      </a>
+      <a class="nav-link fw-semibold px-3 py-2 rounded-pill mx-2" routerLink="/dragonball"
+        routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+        <i class="bi bi-person-badge me-2"></i>Dragonball
+      </a>
+    </div>
+  </div>
+</nav>
