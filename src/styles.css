@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #1b263b; /* Azul un poco más claro */
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

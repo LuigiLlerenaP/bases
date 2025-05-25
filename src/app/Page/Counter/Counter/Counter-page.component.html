@@ -1,0 +1,11 @@
+<section>
+  <h3>Counter: <span>{{ counter }}</span></h3>
+  <h3>Counter Signal: <span>{{ counterSignal() }}</span></h3>
+  <p>Modify the value of the counter:</p>
+
+  <div class="button-group">
+    <button type="button" (click)="IncreaseByOne()">+1</button>
+    <button type="button" (click)="Decrease()">−1</button>
+    <button type="button" (click)="Reset()">Reset</button>
+  </div>
+</section>
