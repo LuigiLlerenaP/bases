@@ -1,0 +1,15 @@
+{
+    "cSpell.words": [
+        "Destructo",
+        "Galick",
+        "Hellzone",
+        "Kaioken",
+        "Masenko",
+        "Saiyajin"
+    ],
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "externalTemplate": true
+        }
+    }
+}

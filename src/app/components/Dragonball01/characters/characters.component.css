@@ -1,0 +1,354 @@
+/* Card principal con diseño moderno y responsividad mejorada */
+.card-character {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2d1744 100%);
+  color: #ffffff;
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25),
+    0 4px 16px rgba(118, 75, 162, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem);
+  margin: clamp(2px, 0.5vw, 4px);
+  min-height: clamp(100px, 15vh, 140px);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Efecto hover con elevación y brillo - Adaptado para móviles */
+.card-character:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3),
+    0 6px 20px rgba(118, 75, 162, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hover más sutil en dispositivos táctiles */
+@media (hover: hover) and (pointer: fine) {
+  .card-character:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(102, 126, 234, 0.35),
+      0 8px 24px rgba(118, 75, 162, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Elemento decorativo de fondo */
+.card-character::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.card-character:hover::before {
+  top: -40%;
+  right: -40%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 70%
+  );
+}
+
+/* Título mejorado con responsividad */
+.card-character-header {
+  font-size: clamp(0.875rem, 3vw, 1.125rem);
+  font-weight: 800;
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Contenedor de información adaptativo */
+.card-character-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  position: relative;
+  z-index: 2;
+}
+
+/* Elementos de información individuales */
+.card-character-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0; /* Permite que el contenido se contraiga */
+}
+
+.card-character-info label {
+  font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-character-info span {
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-weight: 500;
+  color: #ffffff;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Container de habilidades mejorado */
+.card-character-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.25rem, 1vw, 0.375rem);
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Chips de habilidades con efecto glassmorphism */
+.card-character-skill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: clamp(0.25rem, 1vw, 0.375rem) clamp(0.5rem, 1.5vw, 0.75rem);
+  border-radius: 50px;
+  font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Efecto hover para chips - Mejorado para táctil */
+.card-character-skill:hover,
+.card-character-skill:focus,
+.card-character-skill:active {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+/* Variantes de colores para diferentes tipos de skills */
+.card-character-skill.skill-combat {
+  background: rgba(255, 92, 92, 0.2);
+  border-color: rgba(255, 92, 92, 0.3);
+}
+
+.card-character-skill.skill-magic {
+  background: rgba(147, 92, 255, 0.2);
+  border-color: rgba(147, 92, 255, 0.3);
+}
+
+.card-character-skill.skill-social {
+  background: rgba(92, 255, 147, 0.2);
+  border-color: rgba(92, 255, 147, 0.3);
+}
+
+.card-character-skill.skill-technical {
+  background: rgba(255, 183, 92, 0.2);
+  border-color: rgba(255, 183, 92, 0.3);
+}
+
+/* Contenedor de fondo responsivo */
+.bg-dark-blue {
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(102, 126, 234, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(118, 75, 162, 0.05) 0%,
+      transparent 50%
+    ),
+    #0d1117;
+  color: #f0f0f0;
+  padding: clamp(1rem, 3vw, 2rem) clamp(0.5rem, 2vw, 1rem);
+  border-radius: clamp(0.25rem, 1vw, 0.5rem);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.bg-dark-blue h2 {
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  text-align: center;
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.7);
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Breakpoints específicos para mejor control */
+
+/* Móviles muy pequeños (320px - 480px) */
+@media (max-width: 480px) {
+  .card-character {
+    padding: 0.75rem 0.5rem;
+    min-height: 100px;
+    margin: 2px;
+  }
+
+  .card-character-info {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-character-skills {
+    gap: 0.25rem;
+  }
+
+  .card-character-skill {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Tablets pequeñas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card-character {
+    padding: 1rem 0.75rem;
+    min-height: 110px;
+  }
+
+  .card-character-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Tablets grandes y laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-character {
+    padding: 1.25rem 1rem;
+    min-height: 120px;
+  }
+
+  .card-character-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.125rem;
+  }
+}
+
+/* Escritorio (1025px+) */
+@media (min-width: 1025px) {
+  .card-character {
+    padding: 1.5rem 1rem;
+    min-height: 140px;
+  }
+
+  .card-character-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Mejoras para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .card-character,
+  .card-character::before,
+  .card-character-skill {
+    transition: none;
+    animation: none;
+  }
+
+  .card-character:hover {
+    transform: none;
+  }
+}
+
+/* Modo alto contraste */
+@media (prefers-contrast: high) {
+  .card-character {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .card-character-skill {
+    border-width: 2px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* Animación sutil de entrada - Optimizada */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(clamp(10px, 3vw, 20px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-character {
+  animation: cardFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Grid container responsivo para las cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+}

@@ -1,59 +1,159 @@
-<h2 class="text-center text-warning my-4">Dragon Ball Characters</h2>
-<section class="container-fluid bg-dark text-white py-5">
-  <div class="container">
-    <div class="row g-5 align-items-start">
+<!-- Título principal con animación -->
+<div class="text-center py-5" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);">
+  <h2 class="display-4 fw-bold mb-0 position-relative title-animated">
+    <i class="fas fa-dragon me-3" style="color: #ff6b35;"></i>
+    Dragon Ball Characters
+    <i class="fas fa-dragon ms-3" style="color: #ffd700;"></i>
+  </h2>
+</div>
 
-      <!-- FORMULARIO (izquierda en pantallas grandes) -->
-      <div class="col-12 col-md-5 col-lg-4">
-        <div class="card bg-secondary bg-gradient text-white shadow rounded-4 p-4 h-100">
-          <h3 class="fw-bold text-center mb-4 text-warning">Add Character</h3>
+<section class="min-vh-100 hero-section ">
 
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Complete Name</label>
-              <input type="text" class="form-control rounded-2 border border-warning shadow-sm" id="name"
-                placeholder="e.g. Son Goku" style="background-color: #2a2a2a; color: #fff;" />
+  <!-- Fondo animado sutil -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 animated-background"></div>
+
+  <div class="container py-5 position-relative">
+    <div class="row g-4 align-items-start">
+
+      <!-- FORMULARIO MEJORADO -->
+      <div class="col-12 col-lg-5">
+        <div class="card border-0 shadow-lg h-100 position-relative overflow-hidden card-glass">
+
+          <!-- Borde superior gradiente -->
+          <div class="position-absolute top-0 start-0 w-100 card-border-top"></div>
+
+          <div class="card-body p-4">
+            <div class="text-center mb-4">
+              <h3 class="fw-bold text-white">
+                Add New Character {{ name() }}
+              </h3>
+              <p class="mb-0 text-white">Create your Dragon Ball warrior</p>
             </div>
 
-            <div class="mb-3">
-              <label for="power" class="form-label">Power Level</label>
-              <input type="number" class="form-control rounded-2 border border-warning shadow-sm" id="power"
-                placeholder="e.g. 9000" style="background-color: #2a2a2a; color: #fff;" />
-            </div>
+            <form>
+              <div class="mb-4">
+                <label for="name" class="form-label fw-semibold text-white mb-2">
+                  <i class="fas fa-user me-2 text-warning"></i>Complete Name
+                </label>
+                <div class="position-relative ">
+                  <input type="text" class="form-control border-0 shadow-sm py-3 ps-4 input-custom" id="name"
+                    placeholder="Write complete name" required [value]="name()" (change)="name.set(txtName.value)"
+                    (input)="name.set(txtName.value)" #txtName />
+                </div>
+              </div>
 
-            <div class="d-grid">
-              <button type="submit" class="btn btn-warning fw-bold rounded-pill">
-                Add Character
-              </button>
-            </div>
-          </form>
+              <div class="mb-4">
+                <label for="power" class="form-label fw-semibold text-white mb-2">
+                  <i class="fas fa-bolt me-2 text-warning"></i>Power Level
+                </label>
+                <div class="position-relative">
+                  <span class="fas fa-magic me-2 text-warning">{{power()}}</span>
+                  <input type="number" class="form-control border-0 shadow-sm py-3 ps-4 input-custom" id="power"
+                    placeholder="9000" required [value]="power()" (input)="power.set( + txtPower.value)" #txtPower />
+                </div>
+              </div>
 
+              <div class="mb-4">
+                <label for="race" class="form-label fw-semibold text-white mb-2">
+                  <i class="fas fa-dna me-2 text-warning"></i>Race
+                </label>
+                <div class="position-relative">
+                  <span class="fas fa-magic me-2 text-warning">{{race()}}</span>
+                  <input type="text" class="form-control border-0 shadow-sm py-3 ps-4 input-custom" id="race"
+                    placeholder="Write race" required [value]="race()" (input)="race.set(txtRace.value)" #txtRace />
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label for="skills" class="form-label fw-semibold text-white mb-2">
+                  <i class="fas fa-magic me-2 text-warning"></i>Skills & Abilities
+                </label>
+                <div class="position-relative">
+                  <span class="fas fa-magic me-2 text-warning">{{skills()}}</span>
+                  <textarea name="skills" id="skills" placeholder="Describe character's unique skills and abilities..."
+                    class="form-control border-0 shadow-sm py-3 ps-4 input-custom" rows="2" required #listSkills
+                    [value]="skills()" (input)="skills.set(listSkills.value.split(','))"></textarea>
+                </div>
+              </div>
+
+              <div class="d-grid">
+                <button type="button" (click)="addCharacter()"
+                  class="btn btn-lg fw-bold py-3 border-0 position-relative overflow-hidden btn-gradient">
+                  <i class="fas fa-plus-circle me-2"></i>
+                  Add Character
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
-      <!-- LISTA DE PERSONAJES (derecha en pantallas grandes) -->
-      <div class="col-12 col-md-7 col-lg-8">
-        <div class="d-flex flex-column gap-3">
-          <!-- Card personaje compacta sin imagen -->
-          <div class="card border-2 shadow-sm rounded-4 bg-dark text-white p-3" style="border-color: #ffc107;">
-            <div class="d-flex justify-content-between align-items-center">
-              <div>
-                <h5 class="fw-bold text-warning mb-1">Son Goku</h5>
-                <p class="mb-1 text-white-50 small">
-                  Poder estimado: <span class="fw-semibold text-light">9000</span>
-                </p>
-                <div class="d-flex gap-2 flex-wrap">
-                  <span class="badge bg-warning text-dark rounded-pill px-2">Saiyajin</span>
-                  <span class="badge bg-primary rounded-pill px-2">Kamehameha</span>
+      <!-- LISTA DE PERSONAJES MEJORADA -->
+      <div class="col-12 col-lg-7">
+        <div class="d-flex flex-column gap-4">
+
+          @for (character of characters(); track character.id) {
+          @if (character.power > 6000) {
+          <div class="card border-0 shadow-lg position-relative overflow-hidden character-card">
+
+            <!-- Efecto de brillo -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0 card-glow"></div>
+
+            <div class="card-body p-4 position-relative">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="flex-grow-1">
+                  <!-- Header del personaje -->
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="me-3">
+                      <div class="rounded-circle d-flex align-items-center justify-content-center gradient-yellow-box">
+                        <i class="fas fa-user-ninja text-white"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 class="fw-bold mb-1 gradient-text">
+                        {{character.name}}
+                      </h5>
+                      <div class="d-flex align-items-center">
+                        <i class="fas fa-bolt text-warning me-2"></i>
+                        <span class="gradient-text-blue small">Power Level:</span>
+                        <span [class.power-highlight-red]="character.power > 9000"
+                          [class.power-highlight]="character.power <= 9000"
+                          [class.power-highlight-green]="character.power == 8000">
+                          {{character.power | number}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Raza -->
+                  <div class="mb-3">
+                    <span class="badge rounded-pill px-3 py-2 fw-semibold gradient-blue-card">
+                      <i class="fas fa-dna me-1"></i>
+                      {{character.race}}
+                    </span>
+                  </div>
+
+                  <!-- Skills -->
+                  <div>
+                    <div class="d-flex align-items-center mb-2">
+                      <i class="fas fa-magic text-warning me-2"></i>
+                      <span class="fw-semibold text-white">Special Abilities</span>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap">
+                      @for (skill of character.skills; track skill) {
+                      <span class="badge rounded-pill px-3 py-2 fw-semibold highlight-card ">
+                        {{skill | uppercase}}
+                      </span>
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button class="btn btn-sm btn-outline-warning rounded-pill px-3">
-                Ver más
-              </button>
             </div>
           </div>
 
-          <!-- Aquí puedes duplicar esta card para más personajes -->
+          }
+          }
 
         </div>
       </div>

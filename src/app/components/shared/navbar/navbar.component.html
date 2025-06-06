@@ -1,23 +1,35 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark shadow-lg">
-  <div class="container-fluid px-4">
-    <!-- Logo / Brand -->
-    <a class="navbar-brand fw-bold fs-4 text-primary" routerLink="/" style="letter-spacing: 1px;">
-      <i class="bi bi-code-slash me-2"></i>Bases
+<nav class="navbar navbar-expand navbar-dark shadow-lg position-sticky top-0 custom-navbar">
+  <div class="container-fluid px-4 position-relative">
+    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-50 glow-background"></div>
+
+    <a class="navbar-brand fw-bold fs-4 position-relative text-decoration-none d-flex align-items-center brand-style"
+      routerLink="/">
+      <span class="text-gradient">Angular Bases</span>
     </a>
 
-    <!-- Menú de navegación siempre visible -->
-    <div class="navbar-nav ms-auto d-flex flex-row">
-      <a class="nav-link fw-semibold px-3 py-2 rounded-pill mx-2" routerLink="/counter" routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{exact:true}">
-        <i class="bi bi-calculator me-2"></i>Counter
+    <div class="navbar-nav ms-auto d-flex flex-row position-relative nav-container">
+
+      <a class="nav-link fw-semibold px-4 py-2 mx-2 position-relative text-decoration-none d-flex align-items-center nav-item-style nav-item-counter"
+        routerLink="/counter" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+        <span>Counter</span>
+        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0 hover-glow hover-counter"></div>
       </a>
-      <a class="nav-link fw-semibold px-3 py-2 rounded-pill mx-2" routerLink="/hero" routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{exact:true}">
-        <i class="bi bi-person-badge me-2"></i>Hero
+
+      <a class="nav-link fw-semibold px-4 py-2 mx-2 position-relative text-decoration-none d-flex align-items-center nav-item-style nav-item-hero"
+        routerLink="/hero" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+        <span>Hero</span>
+        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0 hover-glow hover-hero"></div>
       </a>
-      <a class="nav-link fw-semibold px-3 py-2 rounded-pill mx-2" routerLink="/dragonball"
-        routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
-        <i class="bi bi-person-badge me-2"></i>Dragonball
+
+      <a class="nav-link fw-semibold px-4 py-2 mx-2 position-relative text-decoration-none d-flex align-items-center nav-item-style nav-item-dragonball"
+        routerLink="/dragonball" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+        <span>Dragon Ball</span>
+        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0 hover-glow hover-dragonball"></div>
+      </a>
+      <a class="nav-link fw-semibold px-4 py-2 mx-2 position-relative text-decoration-none d-flex align-items-center nav-item-style nav-item-dragonball"
+        [routerLink]="['/dragonball-super']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">
+        <span>Dragon Ball Super</span>
+        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0 hover-glow hover-dragonball"></div>
       </a>
     </div>
   </div>

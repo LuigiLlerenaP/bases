@@ -1,0 +1,17 @@
+<section class="container py-5">
+  <div class="row g-4 align-items-start">
+
+    <!-- Formulario a la izquierda -->
+    <div class="col-md-4">
+      <!-- event es el valor que emite mi evento output -->
+      <dragonball-add-character (newCharacter)=" dragonballService.addCharacter($event)"></dragonball-add-character>
+    </div>
+
+    <!-- Lista de personajes a la derecha -->
+    <div class="col-md-8">
+      <dragonball-characters [characters]="dragonballService.characters()"
+        titleCharacters="Characters"></dragonball-characters>
+    </div>
+
+  </div>
+</section>

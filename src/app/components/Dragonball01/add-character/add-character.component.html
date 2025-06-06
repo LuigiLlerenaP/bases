@@ -1,0 +1,31 @@
+<section class="container py-4 bg-dark-blue text-white">
+  <header class="text-center mb-4">
+    <h3 class="fw-bold text-gradient">Add New Character {{ name() }}</h3>
+    <p>Create your Dragon Ball warrior</p>
+  </header>
+
+  <form class="needs-validation" novalidate>
+    <fieldset>
+      <label for="name" class="form-label">Complete Name</label>
+      <input id="name" name="name" type="text" class="form-control mb-3" placeholder="Add complete name" required
+        [value]="name()" (input)="name.set(txtName.value)" #txtName />
+
+      <label for="power" class="form-label">Power Level</label>
+      <input id="power" name="power" type="number" class="form-control mb-3" placeholder="Add power level" required
+        [value]="power()" (input)="power.set(+txtPower.value)" #txtPower />
+
+      <label for="race" class="form-label">Race</label>
+      <input id="race" name="race" type="text" class="form-control mb-3" placeholder="Add race" required
+        [value]="race()" (input)="race.set(txtRace.value)" #txtRace />
+
+      <label for="skills" class="form-label">Skills & Abilities</label>
+      <textarea id="skills" name="skills" rows="2" class="form-control mb-4"
+        placeholder="Describe character's unique skills and abilities..." required [value]="skills()"
+        (input)="skills.set(listSkills.value.split(','))" #listSkills></textarea>
+
+      <button type="button" class="btn btn-gradient w-100" (click)="addCharacter()">
+        Add Character
+      </button>
+    </fieldset>
+  </form>
+</section>
